@@ -7,7 +7,8 @@ ruby "1.9.3", :engine => 'jruby', :engine_version => '1.7.3'
 gem 'rails', '4.0.0.beta1'
 
 gem 'activerecord-jdbcsqlite3-adapter'
-gem 'jruby-openssl'
+# Don't use this in jruby 1.7.3
+#gem 'jruby-openssl'
 
 # Gems used only for assets and not required
 # in production environments by default.
