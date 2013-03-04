@@ -6,6 +6,7 @@ require 'rails/all'
 Bundler.require(*Rails.groups(assets: %w(development test)))
 
 # hack to fix railties explode in JRuby
+# found solution: http://stackoverflow.com/questions/14527816/myappapplicationrailties-constant-missing-with-rails-4-beta-and-jruby-jruby
 Rails::Engine.class_eval do
     def railties
         @railties ||= self.class.const_get(:Railties).new
