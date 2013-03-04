@@ -5,6 +5,13 @@ require 'rails/all'
 # Assets should be precompiled for production (so we don't need the gems loaded then)
 Bundler.require(*Rails.groups(assets: %w(development test)))
 
+# hack to fix railties explode in JRuby
+Rails::Engine.class_eval do
+    def railties
+        @railties ||= self.class.const_get(:Railties).new
+    end
+end
+
 module NotVersionOne
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
