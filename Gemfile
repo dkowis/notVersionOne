@@ -1,5 +1,8 @@
 source 'https://rubygems.org'
 
+# specify the right ruby version and engine version.
+ruby "1.9.3", :engine => 'jruby', :engine_version => '1.7.3'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0.beta1'
 
