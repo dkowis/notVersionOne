@@ -6,7 +6,7 @@ module M
   # include the package of filtering
   include_package 'com.versionone.om.filters'
 
-  v1 = V1Instance.new('https://www15.v1host.com/RACKSPCE', 'davi3906', 'teh_pass')
+  v1 = V1Instance.new('https://www15.v1host.com/RACKSPCE', 'davi3906', 'okak5vea')
 
   # list all projects you have access to
   #puts "you have projects:"
@@ -17,6 +17,8 @@ module M
   # get the cloud control project by name
   puts "but we're only going to play with cloud_control right now"
   cc_project = v1.get.project_by_name("Cloud Control")
+
+  puts "does it have an ID: #{cc_project.id.token}"
 
   # lets get stuff for the iteration as named:
   iter_filter = IterationFilter.new

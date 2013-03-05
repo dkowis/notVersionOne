@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
-  before_filter :require_login
+  before_filter :require_login, :user_information
 
   def v1
     V1::V1Interface.new(session[:username], session[:password])
@@ -24,6 +24,11 @@ class ApplicationController < ActionController::Base
         redirect_to login_path
       end
     end
+  end
+
+  def user_information
+    #retreive things that should be on each page
+    @projects = v1.projects
   end
 
 end
