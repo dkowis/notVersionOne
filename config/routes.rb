@@ -1,7 +1,15 @@
 NotVersionOne::Application.routes.draw do
   get "index" => "home#index"
   get "login" => "home#login"
-  delete "login" => "home#logout", :as  => :logout
+  post "login" => "home#authenticate"
+  delete "login" => "home#logout", :as => :logout
+
+  namespace "projects" do
+    get ":project_id" => "projects#show", :as => :project
+    get ":project_id/work" => "projects#work", :as => :work
+  end
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
