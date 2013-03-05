@@ -6,7 +6,7 @@ module M
   # include the package of filtering
   include_package 'com.versionone.om.filters'
 
-  v1 = V1Instance.new('https://www15.v1host.com/RACKSPCE', 'davi3906', 'okak5vea')
+  v1 = V1Instance.new('https://www15.v1host.com/RACKSPCE', 'davi3906', 'not_my_pass')
 
   # list all projects you have access to
   #puts "you have projects:"
@@ -37,11 +37,11 @@ module M
   # blargh, using the right state is a pain!
   df.state.add(BaseAssetFilter::State::Active) #how do I get the ones in "(None)"
   #df.state.add(State::FUTURE) #combination of FUTURE state and nil in the status column
-  df.status.add(nil)
-  df.status.add("Future")
-  df.status.add("In Dev")
-  df.status.add("Dev Done")
-  df.status.add("In QE")
+  #df.status.add(nil)
+  #df.status.add("Future")
+  #df.status.add("In Dev")
+  #df.status.add("Dev Done")
+  #df.status.add("In QE")
 
   sf = StoryFilter.new
   sf.state.add(BaseAssetFilter::State::Active)
